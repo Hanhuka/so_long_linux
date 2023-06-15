@@ -6,24 +6,31 @@
 /*   By: ralves-g <ralves-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 16:58:29 by ralves-g          #+#    #+#             */
-/*   Updated: 2022/05/30 15:04:18 by ralves-g         ###   ########.fr       */
+/*   Updated: 2023/06/15 18:56:54 by ralves-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
+static unsigned long	time_ms(void)
+{
+	struct timeval	tv;
+
+	gettimeofday(&tv, NULL);
+	return ((tv.tv_sec * 1000) + (tv.tv_usec / 1000));
+}
+
 int	nyan(t_win *win)
 {
-	static int	i;
+	static unsigned long	i = 0;
 
+	if (!i)
+		i = time_ms();
 	if ((*window()).opt != 2)
 		return (0);
-	if (i < 800)
-	{
-		i++;
+	if (time_ms() - i < GIF_MPF)
 		return (0);
-	}
-	i = 0;
+	i = time_ms();
 	(*bckgnd()) = (*bckgnd())->next;
 	if (!(*bckgnd())->img)
 		(*bckgnd()) = (*bckgnd())->next;
@@ -63,7 +70,7 @@ void	cenas(t_win *win, int ac, char **av)
 	if (ac == 3)
 	{
 		if (ft_strlen(av[2]) == 1 && av[2][0] == '0')
-			;
+			window()->opt = -1;
 		else if (ft_strlen(av[2]) == 1 && av[2][0] == '1')
 			((*sp()).background) = mlx_xpm_file_to_image((*win).mlx,
 					SPATH"so_long_bckg.xpm", &s, &s);

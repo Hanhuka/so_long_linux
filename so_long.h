@@ -6,12 +6,16 @@
 /*   By: ralves-g <ralves-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 16:39:27 by ralves-g          #+#    #+#             */
-/*   Updated: 2022/09/29 16:02:44 by ralves-g         ###   ########.fr       */
+/*   Updated: 2023/06/15 19:05:00 by ralves-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
+
+# define GIF_NAME "Nyan"
+# define FRAME_NBR 12
+# define GIF_MPF 100
 
 // # ifndef __APPLE__
 // #  define LINUX 0
@@ -41,6 +45,7 @@
 // # include <mlx.h>
 # include "mlx_linux/mlx.h"
 # include <stdio.h>
+# include <sys/time.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
@@ -294,6 +299,7 @@ void	remove_collectable(int x, int y, int i);
 void	remove_collectable_utils(t_objt *tmp, int x, int y, int i);
 
 //animations.c
+void	break_circle(t_anim **stack);
 void	animate_collectable(void);
 t_anim	*new_module(void *new);
 void	stackadd_back(t_anim **stack, t_anim *new);
@@ -339,6 +345,7 @@ void	cenas(t_win *win, int ac, char **av);
 
 //side_info.c
 void	printf_side_info(t_win *win);
+char	*ft_itoa(int n);
 
 //move_enemy.c
 void	move_every_enemy(void);
