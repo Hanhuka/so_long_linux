@@ -6,7 +6,7 @@
 /*   By: ralves-g <ralves-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 11:49:43 by ralves-g          #+#    #+#             */
-/*   Updated: 2023/10/11 16:48:47 by ralves-g         ###   ########.fr       */
+/*   Updated: 2023/10/13 17:41:07 by ralves-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@ void	linux_move(int keycode)
 int	key_down(int keycode, t_win *win)
 {
 	(void) win;
-	if (LINUX)
-		linux_move(keycode);
+	// if (LINUX)
+	// 	linux_move(keycode);
 	if (keycode == ESC)
 		exit_game("\e[1;94mWindow closed\n\e[0m");
 	if (keycode == KEY_W)
@@ -55,7 +55,7 @@ int	key_down(int keycode, t_win *win)
 		keys()->d = 1;
 	zoom(keycode, win);
 	change_bckgnd(keycode);
-	move_character(keys()->d - keys()->a, keys()->s - keys()->w);
+	// move_character(keys()->d - keys()->a, keys()->s - keys()->w);
 	// mlx_clear_window((*win).mlx, (*win).mlx_win);
 	// print_to_window(win);
 	return (0);
@@ -71,7 +71,7 @@ int	key_up(int keycode, t_win *win)
 		keys()->s = 0;
 	if (keycode == KEY_D)
 		keys()->d = 0;
-	move_character(keys()->d - keys()->a, keys()->s - keys()->w);
+	// move_character(keys()->d - keys()->a, keys()->s - keys()->w);
 	// mlx_clear_window((*win).mlx, (*win).mlx_win);
 	// print_to_window(win);
 	return (0);

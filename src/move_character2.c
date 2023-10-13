@@ -6,23 +6,78 @@
 /*   By: ralves-g <ralves-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 17:38:56 by ralves-g          #+#    #+#             */
-/*   Updated: 2023/10/13 16:38:26 by ralves-g         ###   ########.fr       */
+/*   Updated: 2023/10/13 17:53:11 by ralves-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
+int	check_colision_x(int x, char type)
+{
+	t_objt	*tmp;
+
+	tmp = (*objects(64));
+	while (tmp)
+	{
+		if (tmp->type == type)
+		{
+			if ((((*objects(64))->x + x >= tmp->x
+						&& (*objects(64))->x + x <= tmp->x2)
+					|| ((*objects(64))->x2 + x >= tmp->x
+						&& (*objects(64))->x2 + x <= tmp->x2))
+				&& (((*objects(64))->y >= tmp->y
+						&& (*objects(64))->y <= tmp->y2)
+					|| ((*objects(64))->y2 >= tmp->y
+						&& (*objects(64))->y2 <= tmp->y2)))
+				return (1);
+		}
+		tmp = tmp->next;
+	}
+	return (0);
+}
+
+int	check_colision_y(int y, char type)
+{
+	t_objt	*tmp;
+
+	tmp = (*objects(64));
+	while (tmp)
+	{
+		if (tmp->type == type)
+		{
+			if ((((*objects(64))->x >= tmp->x
+						&& (*objects(64))->x <= tmp->x2)
+					|| ((*objects(64))->x2 >= tmp->x
+						&& (*objects(64))->x2 <= tmp->x2))
+				&& (((*objects(64))->y + y >= tmp->y
+						&& (*objects(64))->y + y <= tmp->y2)
+					|| ((*objects(64))->y2 + y >= tmp->y
+						&& (*objects(64))->y2 + y <= tmp->y2)))
+				return (1);
+		}
+		tmp = tmp->next;
+	}
+	return (0);
+}
 void	move_character(int x, int y)
 {
 	int		i;
 
 	i = 'a';
 	character_direction(x);
-	if (!check_colision(x, y, '1'))
+	if (!check_colision_x(x, '1'))
 	{
-		if (x || y)
+		if (x)
 			(*steps())++;
-		move_all(x, y);
+		move_all(x, 0);
+		if (check_colision2('C'))a
+			remove_collectable(x, y, 0);
+	}
+	if (!check_colision_y(y, '1'))
+	{
+		if (y)
+			(*steps())++;
+		move_all(0, y);
 		if (check_colision2('C'))
 			remove_collectable(x, y, 0);
 	}
