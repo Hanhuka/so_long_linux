@@ -6,7 +6,7 @@
 /*   By: ralves-g <ralves-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 11:49:43 by ralves-g          #+#    #+#             */
-/*   Updated: 2022/09/13 11:15:59 by ralves-g         ###   ########.fr       */
+/*   Updated: 2023/10/11 16:48:47 by ralves-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ t_key	*keys(void)
 
 void	zoom(int keycode, t_win *win)
 {
-
 	if (keycode == UP || keycode == DOWN)
 	{
 		if (keycode == UP && (*win).px_size > 16)
@@ -57,8 +56,8 @@ int	key_down(int keycode, t_win *win)
 	zoom(keycode, win);
 	change_bckgnd(keycode);
 	move_character(keys()->d - keys()->a, keys()->s - keys()->w);
-	mlx_clear_window((*win).mlx, (*win).mlx_win);
-	print_to_window(win);
+	// mlx_clear_window((*win).mlx, (*win).mlx_win);
+	// print_to_window(win);
 	return (0);
 }
 
@@ -73,7 +72,7 @@ int	key_up(int keycode, t_win *win)
 	if (keycode == KEY_D)
 		keys()->d = 0;
 	move_character(keys()->d - keys()->a, keys()->s - keys()->w);
-	mlx_clear_window((*win).mlx, (*win).mlx_win);
-	print_to_window(win);
+	// mlx_clear_window((*win).mlx, (*win).mlx_win);
+	// print_to_window(win);
 	return (0);
 }

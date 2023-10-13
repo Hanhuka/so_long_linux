@@ -6,7 +6,7 @@
 /*   By: ralves-g <ralves-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 11:56:30 by ralves-g          #+#    #+#             */
-/*   Updated: 2022/05/05 14:54:22 by ralves-g         ###   ########.fr       */
+/*   Updated: 2023/10/13 17:27:45 by ralves-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,8 +96,9 @@ void	printf_side_info(t_win *win)
 	str = ft_itoa((*counter()).collect);
 	str2 = ft_strjoin("left = ", str);
 	stps = ft_itoa((*steps()));
-	mlx_put_image_to_window((*win).mlx, (*win).mlx_win, (*sp()).side_info,
-		(*win).width, 0);
+	// mlx_put_image_to_window((*win).mlx, (*win).mlx_win, (*sp()).side_info.img,
+	// 	(*win).width, 0);
+	print_to_frame(&((*sp()).side_info), &(win->frame), (*win).width, 0);
 	mlx_string_put((*win).mlx, (*win).mlx_win, (*win).width + 50, 280,
 		0x00780EFD, "collectables");
 	mlx_string_put((*win).mlx, (*win).mlx_win, (*win).width + 50, 300,

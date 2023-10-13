@@ -6,13 +6,12 @@
 /*   By: ralves-g <ralves-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 16:50:58 by ralves-g          #+#    #+#             */
-/*   Updated: 2022/05/05 14:54:22 by ralves-g         ###   ########.fr       */
+/*   Updated: 2023/10/11 16:01:51 by ralves-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
-
-void	*wall_cond(t_coord c)
+t_img	*wall_cond(t_coord c)
 {
 	if (walls_1(c))
 		return (walls_1(c));
@@ -37,7 +36,7 @@ void	*wall_cond(t_coord c)
 	return (NULL);
 }
 
-void	*wall_cond2(t_coord c)
+t_img	*wall_cond2(t_coord c)
 {
 	if (wall_cond(c))
 		return (wall_cond(c));

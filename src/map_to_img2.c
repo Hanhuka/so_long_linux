@@ -6,7 +6,7 @@
 /*   By: ralves-g <ralves-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 19:30:02 by ralves-g          #+#    #+#             */
-/*   Updated: 2022/05/05 14:56:32 by ralves-g         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:53:02 by ralves-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	create_enemy(int size)
 	}
 }
 
-void	create_object(void *img, t_coord c, int size, char type)
+void	create_object(t_img img, t_coord c, int size, char type)
 {
 	t_objt	*ob;
 	t_objt	*tmp;
@@ -65,16 +65,16 @@ void	create_object(void *img, t_coord c, int size, char type)
 	}
 }
 
-void	*put_walls(int size, t_coord c)
+t_img	*put_walls(int size, t_coord c)
 {
 	if (size == 64)
 		return (wall_cond2(c));
 	if (size == 48)
-		return (((*sp())).wall_48);
+		return (&(((*sp())).wall_48));
 	if (size == 32)
-		return (((*sp())).wall_32);
+		return (&(((*sp())).wall_32));
 	else
-		return (((*sp())).wall_16);
+		return (&(((*sp())).wall_16));
 }
 
 void	create_collectables(t_coord c, int size)

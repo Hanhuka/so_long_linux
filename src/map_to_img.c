@@ -6,7 +6,7 @@
 /*   By: ralves-g <ralves-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 15:37:10 by ralves-g          #+#    #+#             */
-/*   Updated: 2022/09/07 16:57:29 by ralves-g         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:55:05 by ralves-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@ void	create_by_size(void)
 void	create_player_util(t_coord c, int size)
 {
 	if (size == 64)
-		create_object((*sp()).bee_left, c, size, 'P');
+		create_object(((*sp()).bee_left), c, size, 'P');
 	if (size == 48)
-		create_object((*sp()).bee_left_48, c, size, 'P');
+		create_object(((*sp()).bee_left_48), c, size, 'P');
 	if (size == 32)
-		create_object((*sp()).bee_left_32, c, size, 'P');
+		create_object(((*sp()).bee_left_32), c, size, 'P');
 	if (size == 16)
-		create_object((*sp()).bee_left_16, c, size, 'P');
+		create_object(((*sp()).bee_left_16), c, size, 'P');
 }
 
 void	create_player(int size)

@@ -6,20 +6,27 @@
 /*   By: ralves-g <ralves-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/23 14:21:42 by ralves-g          #+#    #+#             */
-/*   Updated: 2023/01/04 15:54:39 by ralves-g         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:46:56 by ralves-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../so_long.h"
 
-t_anim	*new_module(void *new)
+t_anim	*new_module(char *name, t_win *win)
 {		
 	t_anim	*linker;
+	void *test;
+	void *mlx = mlx_init();
 
+	int i;
 	linker = (t_anim *)malloc(sizeof(*linker));
 	if (linker == NULL)
 		return (0);
-	linker->img = new;
+	printf("creating sprite named [%s]\n", name);
+	linker->img.img = mlx_xpm_file_to_image((*win).mlx, name, &(linker->img.width), &(linker->img.height));
+	linker->img.addr = mlx_get_data_addr(linker->img.img, \
+		&(linker->img.bits_per_pixel), &(linker->img.line_length),\
+		&(linker->img.endian));
 	linker->next = NULL;
 	return (linker);
 }
@@ -42,8 +49,8 @@ void	stackadd_back(t_anim **stack, t_anim *new)
 		return ;
 	}
 	ptr = *stack;
-	tmp = ptr->img;
-	while (ptr->next->img != tmp)
+	tmp = ptr->img.img;
+	while (ptr->next->img.img != tmp)
 		ptr = ptr->next;
 	ptr->next = new;
 	ptr->next->next = (*stack);
@@ -55,8 +62,8 @@ void	break_circle(t_anim **stack)
 	void	*tmp2;
 
 	tmp = (*stack);
-	tmp2 = (*stack)->img;
-	while (tmp->next->img != tmp2)
+	tmp2 = (*stack)->img.img;
+	while (tmp->next->img.img != tmp2)
 		tmp = tmp->next;
 	tmp->next = NULL;
 }

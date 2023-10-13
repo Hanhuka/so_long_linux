@@ -6,7 +6,7 @@
 /*   By: ralves-g <ralves-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 17:32:35 by ralves-g          #+#    #+#             */
-/*   Updated: 2022/05/05 14:54:22 by ralves-g         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:55:59 by ralves-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	create_objects(int size)
 			{
 				d.x = c.x / size;
 				d.y = c.y / size;
-				create_object(put_walls(size, d), c, size, '1');
+				create_object(*put_walls(size, d), c, size, '1');
 			}
 			if ((*map())[c.y / size][c.x / size] == 'C')
 				create_collectables(c, size);
