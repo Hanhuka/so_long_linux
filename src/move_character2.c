@@ -6,7 +6,7 @@
 /*   By: ralves-g <ralves-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/04 17:38:56 by ralves-g          #+#    #+#             */
-/*   Updated: 2023/10/13 17:53:11 by ralves-g         ###   ########.fr       */
+/*   Updated: 2024/03/09 18:15:04 by ralves-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	move_character(int x, int y)
 		if (x)
 			(*steps())++;
 		move_all(x, 0);
-		if (check_colision2('C'))a
+		if (check_colision2('C'))
 			remove_collectable(x, y, 0);
 	}
 	if (!check_colision_y(y, '1'))

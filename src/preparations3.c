@@ -6,7 +6,7 @@
 /*   By: ralves-g <ralves-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/26 15:19:10 by ralves-g          #+#    #+#             */
-/*   Updated: 2023/10/13 15:21:16 by ralves-g         ###   ########.fr       */
+/*   Updated: 2024/03/09 18:17:55 by ralves-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	opt_2(t_win *win)
 	stackadd_back(bckgnd(), new_module(SPATH"Fundo_2048_1.xpm", win));
 	stackadd_back(bckgnd(), new_module(SPATH"so_long_bckg.xpm", win));
 	stackadd_back(bckgnd(), new_module(SPATH"Nyan1.xpm", win));
-	stackadd_back(bckgnd(), new_module(NULL, win));
+	// stackadd_back(bckgnd(), new_module(NULL, win));
 	(*sp()).background = (*bckgnd())->img;
 }
 
