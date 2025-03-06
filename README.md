@@ -1,9 +1,9 @@
-#so_long
+# so_long
 
 42Curriculum project
 
 This project is a 2D game made in C where we use the [MiniLibX](https://harm-smits.github.io/42docs/libs/minilibx) (this documentation is quite usefull) graphical library. 
-##Project Rules
+## Project Rules
   * Ther player must be able to move in the X & Y axis.
   * When running the program we must add a map file as an argument
   * The map can only be composed of 5 characters
@@ -11,7 +11,7 @@ This project is a 2D game made in C where we use the [MiniLibX](https://harm-smi
   * If the map contains duplicate characters (exit/start), an error message should be displayed.
   * The map must be rectangular.
   * The map must be enclosed/surrounded by walls. If it is not, the program must return an error.
-##My implementation
+## My implementation
   As a 2D game the projects gives a lot of room for creativity so I decided to have some fun with it.
   I have an "object" structure where I keep all the relevant information for every element in the game: 
 ```
