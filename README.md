@@ -52,6 +52,22 @@ As illustrated in the images, the game has a side view and the character is cent
 The game runs on a loop continuously printing every asset into a frame before replacing the old one.
 Animations are handled by checking how much time has passed since the last update, and advancing if it passes a defined threshold.
 
+```
+int game(t_win *win)
+{
+	win->frame.img = mlx_new_image(win->mlx, win->width + SIDEINFO, win->height);
+	win->frame.width = win->width + SIDEINFO;
+	win->frame.height = win->height;
+	win->frame.addr = mlx_get_data_addr(win->frame.img, &(win->frame.bits_per_pixel),
+			&(win->frame.line_length), &(win->frame.endian));
+	move_character(keys()->d - keys()->a, keys()->s - keys()->w);
+	animations(win);
+	print_to_window(win);
+	mlx_put_image_to_window(win->mlx, win->mlx_win, win->frame.img, 0, 0);
+	mlx_destroy_image(win->mlx, win->frame.img);
+}
+```
+
 ## Backgrounds
 The game supports a series of frames as a background to create a sort of gif
 
