@@ -3,6 +3,8 @@
 42Curriculum project
 
 This project is a 2D game made in C where we use the [MiniLibX](https://harm-smits.github.io/42docs/libs/minilibx) (this documentation is quite usefull) graphical library. 
+![Honey Background](./media/background_honey.gif)
+
 ## Project Rules
   * Ther player must be able to move in the X & Y axis.
   * When running the program we must add a map file as an argument
@@ -72,10 +74,11 @@ int game(t_win *win)
 The game supports a series of frames as a background to create a sort of gif
 
 Given you have the frames ordered by name, from 1 to 'N', with 'N' being the total number of frames (ex. Nyan1, Nyan2, Nyan3 .. Nyan'N') all thats needed to do is change the defines to the respective values
+```
 # define GIF_NAME "Nyan"
 # define FRAME_NBR 12
+```
 
-![Nyan Background](./media/background_nyan.gif)
 ![Nyan Background](./media/background_nyan.gif)
 
 
