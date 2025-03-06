@@ -6,7 +6,7 @@ This project is a 2D game made in C where we use the [MiniLibX](https://harm-smi
 ## Project Rules
   * Ther player must be able to move in the X & Y axis.
   * When running the program we must add a map file as an argument
-  * The map can only be composed of 5 characters
+  * The map can only be composed of 5 characters: Wall (1), Floor (0), Starting position (P), Collectible (C) and Exit (E). As part of the bonus I've added enemies so I used an 'X' for their starting position.
   * The map must contain 1 exit, at least 1 collectible, and 1 starting position to be valid.
   * If the map contains duplicate characters (exit/start), an error message should be displayed.
   * The map must be rectangular.
@@ -48,9 +48,18 @@ t_objt	**objects(int n)
 }
 ```
 This way I can easily change which size I'm using. (In-game this change ocurrs using the up and down arrows)
-As illustrated in the images, the game has a side view and the character is centered on the screen, further there are multiple wall sprites so they connect seamleslly.
+As illustrated in the images, the game has a side view and the character is centered on the screen, further more there are multiple wall sprites so they connect seamleslly.
+The game runs on a loop continuously printing every asset into a frame before replacing the old one.
+Animations are handled by checking how much time has passed since the last update, and advancing if it passes a defined threshold.
 
+## Backgrounds
+The game supports a series of frames as a background to create a sort of gif
 
+Given you have the frames ordered by name, from 1 to 'N', with 'N' being the total number of frames (ex. Nyan1, Nyan2, Nyan3 .. Nyan'N') all thats needed to do is change the defines to the respective values
+# define GIF_NAME "Nyan"
+# define FRAME_NBR 12
+
+![Nyan Background](./media/background_nyan.gif)
 ![Nyan Background](./media/background_nyan.gif)
 
 
