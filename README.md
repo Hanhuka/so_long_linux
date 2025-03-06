@@ -14,31 +14,34 @@ This project is a 2D game made in C where we use the [MiniLibX](https://harm-smi
 ##My implementation
   As a 2D game the projects gives a lot of room for creativity so I decided to have some fun with it.
   I have an "object" structure where I keep all the relevant information for every element in the game: 
-    `typedef struct s_objt
+    ```
+    typedef struct s_objt
     {
 	    int				x;
 	    int				y;
       char			type;
 	    t_img			img;
 	    struct s_objt	*next;
-    }				t_objt;`
+    }				t_objt;```
   The structure acts as a linked list, with every node being an object in the game (walls, player, collectibles, exits and enemies)
   Further more as I added the option to switch into sprites of a width/height of 64 48 32 and 16 pixels the method I used to call the list was the following:
-      `t_objt	**objects(int n)
-        {
-          static t_objt	*obj;
-          static t_objt	*obj2;
-	        static t_objt	*obj3;
-	        static t_objt	*obj4;
+   
+```
+t_objt	**objects(int n)
+{
+	static t_objt	*obj;
+	static t_objt	*obj2;
+	static t_objt	*obj3;
+        static t_objt	*obj4;
 
-      	  if (n == 64)
-  		      return (&obj);
-  	      if (n == 48)
-  		      return (&obj2);
-  	      if (n == 32)
-  		      return (&obj3);
-  	      if (n == 16)
-  		      return (&obj4);
-  	    else
-	  	    return (NULL);
-      }`
+	if (n == 64)
+		return (&obj);
+	if (n == 48)
+		return (&obj2);
+	if (n == 32)
+		return (&obj3);
+	if (n == 16)
+		return (&obj4);
+	else
+		return (NULL);
+}```
