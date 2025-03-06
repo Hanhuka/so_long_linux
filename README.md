@@ -50,3 +50,13 @@ t_objt	**objects(int n)
 This way I can easily change which size I'm using. (In-game this change ocurrs using the up and down arrows)
 As illustrated in the images, the game has a side view and the character is centered on the screen, further there are multiple wall sprites so they connect seamleslly.
 
+
+![Nyan Background](./media/background_nyan.gif)
+
+
+
+
+
+
+
+
