@@ -2,7 +2,7 @@
 
 42Curriculum project
 
-This project is a 2D game made in C where we use the [MiniLibX](https://harm-smits.github.io/42docs/libs/minilibx) graphical library. 
+This project is a 2D game made in C where we use the [MiniLibX](https://harm-smits.github.io/42docs/libs/minilibx) (this documentation is quite usefull) graphical library. 
 ##Project Rules
   * Ther player must be able to move in the X & Y axis.
   * When running the program we must add a map file as an argument
@@ -14,7 +14,7 @@ This project is a 2D game made in C where we use the [MiniLibX](https://harm-smi
 ##My implementation
   As a 2D game the projects gives a lot of room for creativity so I decided to have some fun with it.
   I have an "object" structure where I keep all the relevant information for every element in the game: 
-    ```
+```
     typedef struct s_objt
     {
 	    int				x;
@@ -22,7 +22,8 @@ This project is a 2D game made in C where we use the [MiniLibX](https://harm-smi
       char			type;
 	    t_img			img;
 	    struct s_objt	*next;
-    }				t_objt;```
+    }				t_objt;
+```
   The structure acts as a linked list, with every node being an object in the game (walls, player, collectibles, exits and enemies)
   Further more as I added the option to switch into sprites of a width/height of 64 48 32 and 16 pixels the method I used to call the list was the following:
    
@@ -44,4 +45,8 @@ t_objt	**objects(int n)
 		return (&obj4);
 	else
 		return (NULL);
-}```
+}
+```
+This way I can easily change which size I'm using. (In-game this change ocurrs using the up and down arrows)
+As illustrated in the images, the game has a side view and the character is centered on the screen, further there are multiple wall sprites so they connect seamleslly.
+
