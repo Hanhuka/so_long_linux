@@ -3,6 +3,7 @@
 42Curriculum project
 
 This project is a 2D game made in C where we use the [MiniLibX](https://harm-smits.github.io/42docs/libs/minilibx) (this documentation is quite usefull) graphical library. 
+
 ![Honey Background](./media/background_honey.gif)
 
 ## Project Rules
