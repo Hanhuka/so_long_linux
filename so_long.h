@@ -291,7 +291,7 @@ void			print_to_window(t_win *win);
 int				ft_height(char **str);
 void			print_to_frame(t_img *img, t_img *frame, int x, int y);
 void			my_mlx_pixel_put(t_img *data, int x, int y, int color);
-
+void			print_to_frame_add(t_img *img, t_img *frame, int x, int y);
 
 //map_to_img.c
 int				ft_strlen2(char *str);

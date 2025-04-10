@@ -71,11 +71,48 @@ void	print_to_frame(t_img *img, t_img *frame, int x, int y)
 	}
 }
 
+void	my_mlx_pixel_put_add(t_img *data, int x, int y, int color)
+{
+	char	*dst;
+
+	// printf("frame width[%d] height[%d] x[%d] y[%d]\n", data->width, data->height, x, y);
+	if (x < 0 || x >= data->width || y < 0 || y >= data->height)
+		return ;
+	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
+	if (color != 0xFF000000)
+	{
+		// printf("putting color %d\n", color);
+		*(unsigned int *)dst += color;
+	}
+}
+
+void	print_to_frame_add(t_img *img, t_img *frame, int x, int y)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (i < img->height)
+	{
+		j = 0;
+		while (j < img->width)
+		{
+			my_mlx_pixel_put_add(frame, j + x, i + y, get_image_color(img, j, i));
+			j++;
+		}
+		i++;
+	}
+}
+
 void	print_image(t_objt **tmp, t_win *win)
 {
 	// printf("printing sprite with size x[%d]y[%d]\n", (*tmp)->img);
-
-	print_to_frame(&((*tmp)->img), &(win->frame), (*tmp)->x - (*objects((*window()).px_size))->x
+	if ((*tmp)->type == '1' || (*tmp)->type == 'E')
+		print_to_frame_add(&((*tmp)->img), &(win->frame), (*tmp)->x - (*objects((*window()).px_size))->x
+		+ (*window()).height / 2, (*tmp)->y - (*objects((*window()).px_size))->y
+		+ (*window()).height / 2);
+	else 
+		print_to_frame(&((*tmp)->img), &(win->frame), (*tmp)->x - (*objects((*window()).px_size))->x
 		+ (*window()).height / 2, (*tmp)->y - (*objects((*window()).px_size))->y
 		+ (*window()).height / 2);
 	// mlx_put_image_to_window((*window()).mlx, (*window()).mlx_win, (*tmp)->img.img,
