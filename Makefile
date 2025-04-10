@@ -6,7 +6,7 @@
 #    By: ralves-g <ralves-g@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/10/26 16:26:20 by ralves-g          #+#    #+#              #
-#    Updated: 2023/10/11 18:58:03 by ralves-g         ###   ########.fr        #
+#    Updated: 2025/04/10 12:54:10 by ralves-g         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,6 +42,7 @@ SRCS_		=	\
 				preparations.c \
 				preparations2.c \
 				preparations3.c \
+				print_phrase.c \
 				nyan.c \
 				side_info.c \
 				so_long.c \

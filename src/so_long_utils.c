@@ -6,7 +6,7 @@
 /*   By: ralves-g <ralves-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 19:03:42 by ralves-g          #+#    #+#             */
-/*   Updated: 2023/10/13 17:27:01 by ralves-g         ###   ########.fr       */
+/*   Updated: 2025/04/10 13:18:36 by ralves-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,10 @@ void	print_enemies(t_win *win, t_objt *tmp)
 void	print_to_window(t_win *win)
 {
 	t_objt	*tmp;
+		char	*str;
+	char	*str2;
+	char	*stps;
+
 
 	print_backgroud(win);
 	tmp = (*objects((*win).px_size))->next;
@@ -117,6 +121,14 @@ void	print_to_window(t_win *win)
 	// 	(*win).width / 2, (*win).height / 2);
 	print_enemies(win, tmp);
 	printf_side_info(window());
+	str = ft_itoa((*counter()).collect);
+	stps = ft_itoa((*steps()));
+	print_phrase(win, stps, 1200, 200, 15, 20, 5, &(*sp()).font);
+	print_phrase(win, "collectibles", 1080, 280, 8, 15, 3, &(*sp()).font);
+	print_phrase(win, "left", 1080, 300, 8, 15, 3, &(*sp()).font);
+	print_phrase(win, str, 1220, 280, 15, 20, 5, &(*sp()).font);
+	free(str);
+	free(stps);
 }
 
 int	ft_height(char **str)

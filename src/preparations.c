@@ -6,7 +6,7 @@
 /*   By: ralves-g <ralves-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/25 11:42:01 by ralves-g          #+#    #+#             */
-/*   Updated: 2023/10/11 16:43:38 by ralves-g         ###   ########.fr       */
+/*   Updated: 2025/04/10 12:44:59 by ralves-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void	init_walls(t_win *win)
 }
 
 void	init_bees(t_win *win) {
-	;
 	(*sp()).bee_left.img = mlx_xpm_file_to_image((*win).mlx, SPATH"Bee_64_left.xpm", &((*sp()).bee_left.width), &((*sp()).bee_left.height));
 	(*sp()).bee_left.addr = mlx_get_data_addr((*sp()).bee_left.img, &((*sp()).bee_left.bits_per_pixel),  &((*sp()).bee_left.line_length), &((*sp()).bee_left.endian));
 	(*sp()).bee_right.img = mlx_xpm_file_to_image((*win).mlx, SPATH"Bee_64_right.xpm", &((*sp()).bee_right.width), &((*sp()).bee_right.height));
@@ -66,6 +65,10 @@ void	init_bees(t_win *win) {
 	(*sp()).bee_left_16.addr = mlx_get_data_addr((*sp()).bee_left_16.img, &((*sp()).bee_left_16.bits_per_pixel),  &((*sp()).bee_left_16.line_length), &((*sp()).bee_left_16.endian));
 	(*sp()).bee_right_16.img = mlx_xpm_file_to_image((*win).mlx, SPATH"Bee_right_16.xpm", &((*sp()).bee_right_16.width), &((*sp()).bee_right_16.height));
 	(*sp()).bee_right_16.addr = mlx_get_data_addr((*sp()).bee_right_16.img, &((*sp()).bee_right_16.bits_per_pixel),  &((*sp()).bee_right_16.line_length), &((*sp()).bee_right_16.endian));
+
+	(*sp()).font.img = mlx_xpm_file_to_image((*win).mlx, SPATH"font.xpm", &((*sp()).font.width), &((*sp()).font.height));
+	(*sp()).font.addr = mlx_get_data_addr((*sp()).font.img, &((*sp()).font.bits_per_pixel),  &((*sp()).font.line_length), &((*sp()).font.endian));
+
 }
 
 // void	init_walls1(t_win *win, int *s)

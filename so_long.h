@@ -6,7 +6,7 @@
 /*   By: ralves-g <ralves-g@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/07 16:39:27 by ralves-g          #+#    #+#             */
-/*   Updated: 2023/10/13 17:31:09 by ralves-g         ###   ########.fr       */
+/*   Updated: 2025/04/10 12:56:57 by ralves-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -192,6 +192,7 @@ typedef struct s_imgs
 	t_img	empty48;
 	t_img	empty32;
 	t_img	empty16;
+	t_img	font;
 }				t_imgs;
 
 typedef struct s_key
@@ -289,6 +290,8 @@ void			print_image(t_objt **tmp, t_win *win);
 void			print_to_window(t_win *win);
 int				ft_height(char **str);
 void			print_to_frame(t_img *img, t_img *frame, int x, int y);
+void			my_mlx_pixel_put(t_img *data, int x, int y, int color);
+
 
 //map_to_img.c
 int				ft_strlen2(char *str);
@@ -418,5 +421,10 @@ void			exit_game(char *str);
 //exit2.c
 void			destroy_sprites2(void);
 int				window_close(void);
+
+//print_phrase.c
+void			print_phrase(t_win *win, char *str, int x_start, int y_start, int width, int height, int spacing, t_img *font);
+void			print_character(t_win *win, char c, int x_start, int y_start, int width, int height, t_img *font);
+unsigned int	get_image_color(t_img *data, int x, int y);
 
 #endif
